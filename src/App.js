@@ -7,12 +7,19 @@ import Form from './components/Form/Form';
 
 
 function App() {
-const tododata = {
+const tododata = [{
   id: '101',
   title: 'shopping',
   done:'true',
 
+},
+{
+  id: '102',
+  title: 'grocery',
+  done:'true',
+
 }
+]
 
   return (
     <div className="App">
