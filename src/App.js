@@ -5,21 +5,36 @@ import List from './components/list/List';
 import Footer from './components/Footer/Footer';
 import Form from './components/Form/Form';
 
-
-function App() {
-const tododata = {
+const tododata = [{
   id: '101',
   title: 'shopping',
   done:'true',
 
+},
+{
+  id: '103',
+  title: 'sleeping',
+  done:'true',
+
+},
+{
+  id: '106',
+  title: 'grocery',
+  done:'true',
+
 }
+]
+
+
+function App() {
+
 
   return (
     <div className="App">
         <Header/>
       <header className="App-header">
       <Form/>
-      <List id={tododata.id} title={tododata.title} done={tododata.done} />
+      <List todos={tododata} />
        
       </header>
      
