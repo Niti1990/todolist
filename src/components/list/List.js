@@ -1,12 +1,20 @@
-function List ({id,title,done}) {
+function List ({todos}) {
     return (
         <div>
         <h1>Add TODOLIST</h1>
-        <ul>
-        {id} - {title} - {done}
+        <ul> 
+            {todos.map(todo => {
+                    return (
+                    <li>
+                        {todo.id} - {todo.title} - {todo.done}
+                    
+                        <button type="submit" className="button" value="Edit" >Edit </button>
+                        <button type="submit" className="button" value="delete" >Delete </button>
+                    </li>
+                    )
+                }) 
+            }
         </ul>
-        <button type="submit" className="button" value="Edit" >Edit </button>
-        <button type="submit" className="button" value="delete" >Delete </button>
         </div>
         
     );
