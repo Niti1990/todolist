@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import List from './components/list/List';
 import Footer from './components/Footer/Footer';
 import Form from './components/Form/Form';
+import Todo from './components/Todo/Todo';
 
 const tododata = [{
   id: '101',
@@ -27,6 +28,16 @@ const tododata = [{
 
 
 function App() {
+  const deleteTodobyId =(id)=>{
+    console.log("App deleted!");
+    console.log(id);
+    const removeItem = todoItems.filter((todo) => {
+      return todo.id !== id;
+    });
+    console.log(removeItem);
+    //const newList = removeItem
+    setTodoItems(removeItem);
+  }
 
 
   return (
@@ -34,7 +45,7 @@ function App() {
         <Header/>
       <header className="App-header">
       <Form/>
-      <List todos={tododata} />
+      <List todos={tododata} deleteCallback={deleteTodobyId} />
 
       </header>
 

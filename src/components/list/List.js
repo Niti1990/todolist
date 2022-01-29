@@ -1,20 +1,27 @@
-function List ({todos}) {
+import Todo from './components/Todo/Todo';
+function List ({todos, deleteCallback}) {
     return (
         <div>
         <h1>Add TODOLIST</h1>
+
+
+
+
+
         <ul> 
-            {todos.map(todo => {
+            {todos.map((todo, index) => {
                     return (
                     <li>
-                        {todo.id} - {todo.title} - {todo.done}
-                    
-                        <button type="submit" className="button" value="Edit" >Edit </button>
-                        <button type="submit" className="button" value="delete" >Delete </button>
+                        <Todo key={index} id={todo.id} title={todo.title} isDone={todo.isDone} deleteCallback={deleteCallback}/>
+                        {/* <button type="submit" className="button" value="Edit" >Edit </button>
+                         <button type="submit" className="button" value="delete" >Delete </button> */}
+
                     </li>
                     )
                 }) 
             }
         </ul>
+    
         </div>
         
     );
