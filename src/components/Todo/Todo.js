@@ -2,9 +2,12 @@ import React from "react";
 
 function Todo({ title, deleteCallback, id }) {
     const handleDelete = () => {
+
       console.log("delete from todo");
       deleteCallback(id);
     };
+
+
 
     return (
       <div>
