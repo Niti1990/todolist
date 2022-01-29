@@ -5,8 +5,9 @@ import List from './components/list/List';
 import Footer from './components/Footer/Footer';
 import Form from './components/Form/Form';
 import Todo from './components/Todo/Todo';
+import { useState } from 'react';
 
-const tododata = [{
+const TODOS = [{
   id: '101',
   title: 'shopping',
   done:'true',
@@ -28,6 +29,7 @@ const tododata = [{
 
 
 function App() {
+  const [todoItems, setTodoItems] = useState(TODOS);
   const deleteTodobyId =(id)=>{
     console.log("App deleted!");
     console.log(id);
@@ -45,7 +47,7 @@ function App() {
         <Header/>
       <header className="App-header">
       <Form/>
-      <List todos={tododata} deleteCallback={deleteTodobyId} />
+      <List todos={todoItems} deleteCallback={deleteTodobyId} />
 
       </header>
 
