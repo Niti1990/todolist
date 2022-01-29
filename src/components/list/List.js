@@ -17,8 +17,8 @@ function List ({todos, deleteCallback}) {
 
 
                     
-                        <button type="submit" className="button" value="Edit" >Edit </button>
-                        <button type="submit" className="button" value="delete" >Delete </button>
+                        {/* <button type="submit" className="button" value="Edit" >Edit </button>
+                        <button type="submit" className="button" value="delete" >Delete </button> */}
 
                     </li>
                     )

@@ -7,7 +7,7 @@ import Form from './components/Form/Form';
 
 import Todo from './components/Todo/Todo';
 
-import EditTodo from '/components/EditTodo/EditTodo';
+// import EditTodo from '/components/EditTodo/EditTodo';
 import NewTodoInput from './components/NewToDo/NewTodo';
 
 import { useState } from 'react';
@@ -37,7 +37,7 @@ function App() {
 
 
 
-  const [todoItems, setTodoItems] = useState(tododata);
+  const [todoItems, setTodoItems] = useState(TODOS);
 
   const deleteTodoById = (id) => {
 
@@ -54,7 +54,7 @@ function App() {
       <header className="App-header">
       <Form/>
 
-      <List todos={todoItems} deleteCallback={deleteTodobyId} />
+      <List todos={todoItems} deleteCallback={deleteTodoById} />
 
 
     
