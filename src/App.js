@@ -34,9 +34,21 @@ const TODOS = [{
 
 
 function App() {
+  const addNewTodo = (newTodo) =>{
+    console.log(newTodo)
+  }
+  
+ // add items
+//  const [value, setValue] = useState("");
+//  const addNewTodo = (newTodo) =>{
+//   if (!value) return;
+//   addNewTodo(value);
+//   setValue("");
 
+//  };
 
-
+  
+ // delete items
   const [todoItems, setTodoItems] = useState(TODOS);
 
   const deleteTodoById = (id) => {
@@ -52,7 +64,7 @@ function App() {
     <div className="App">
         <Header/>
       <header className="App-header">
-      <Form/>
+      <Form  addNewTodo={addNewTodo} />
 
       <List todos={todoItems} deleteCallback={deleteTodoById} />
 

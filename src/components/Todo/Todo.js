@@ -6,9 +6,6 @@ function Todo({ title, deleteCallback, id }) {
       console.log("delete from todo");
       deleteCallback(id);
     };
-
-
-
     return (
       <div>
         <li>

@@ -1,20 +1,26 @@
 
 import { useState } from 'react';
-function Form () {
-    const[userinput,setUserInput]=useState('')
-
-     const handleSubmit = (event)  => {
-        event.preventDefault();
-        
-       
-    
+function Form ({addNewTodo}) {
+    // intialization the state
+    const[userinput,setUserInput]=useState("");
+    const handleChange = (event) =>{
+        setUserInput(event.target.value)
     };
+     
+//   prevent form 
+     const handleSubmit = (event)  => {
+     event.preventDefault();
+        addNewTodo({
+        id:'1001',
+       text: 'input' 
+     
+    });
+       
+    setUserInput('');
+    };
+  
 
-     const handleChange = (e) =>{
-        setUserInput(e.target.value)
-        setUserInput('')
-
-      }
+      
   
 
     return (
@@ -27,5 +33,5 @@ function Form () {
             </form>
         </div>
     )
-}
+    }
 export default Form  
