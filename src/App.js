@@ -50,17 +50,17 @@ function App() {
   
  // delete items
   const [todoItems, setTodoItems] = useState(TODOS);
-
+// function to remove a todo item from the todo array
   const deleteTodoById = (id) => {
-
-
-    const removeItem = todoItems.filter((todo) => {
+// here we are filtering - the idea is remove an item from the todo array on a button click
+  const removeItem = todoItems.filter((todo) => {
+// return the rest of the todos that don't match the item we are deleting
       return todo.id !== id;
     });
+// removeItem returns a new array - so now we are setting the todos to the new array
     setTodoItems(removeItem);
   } 
-
-  return (
+   return (
     <div className="App">
         <Header/>
       <header className="App-header">
