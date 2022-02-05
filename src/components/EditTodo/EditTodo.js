@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Todo() {
+function EditTodo() {
   return (
     <div>
       <input type="text" value="" />
@@ -9,4 +9,4 @@ function Todo() {
   );
 }
 
-export default Todo;
+export default EditTodo;

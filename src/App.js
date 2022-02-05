@@ -4,33 +4,34 @@ import Header from './components/Header/Header';
 import List from './components/list/List';
 import Footer from './components/Footer/Footer';
 import Form from './components/Form/Form';
-import EditTodo from '/components/EditTodo/EditTodo';
-import NewTodoInput from './components/NewToDo/NewTodo';
+//import EditTodo from '//components/EditTodo/EditTodo';
+import NewTodo from './components/NewToDo/NewTodo';
 import { useState } from 'react';
 
-const tododata = [{
+
+const TODOS = [{
   id: '101',
   title: 'shopping',
-  done:'true',
+  isDone:'true',
   
 },
 {
   id: '103',
   title: 'sleeping',
-  done:'true',
+  isDone:'true',
 
 },
 {
   id: '106',
   title: 'grocery',
-  done:'true',
+  isDone:'true',
 
 }
 ]
 
 
 function App() {
-  const [todoItems, setTodoItems] = useState(tododata);
+  const [todoItems, setTodoItems] = useState(TODOS);
 
   const deleteTodoById = (id) => {
 
@@ -45,8 +46,8 @@ function App() {
         <Header/>
       <header className="App-header">
       <Form/>
-      <List todos={tododata} deleteCallback={deleteTodoById}/>
-       
+      <List todos={todoItems} deleteCallback={deleteTodoById}/>
+      <NewTodo newtodos={addTodo}/>
       </header>
      
       <Footer/>
