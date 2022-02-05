@@ -11,7 +11,7 @@ function Form({ addNewTodo }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newTodo = {
-      id: new Date(),
+      id: Date.now(),
       title: userInput,
       done: false,
     };

@@ -13,17 +13,17 @@ import { useState } from "react";
 
 const TODOS = [
   {
-    id: "101",
+    id: 101,
     title: "shopping",
     done: true,
   },
   {
-    id: "103",
+    id: 103,
     title: "sleeping",
     done: true,
   },
   {
-    id: "106",
+    id: 106,
     title: "grocery",
     done: true,
   },
@@ -44,7 +44,15 @@ function App() {
   //   setValue("");
 
   //  };
-
+  // isdone items
+  const completeTodo = (id) => {
+    const newToDos = todoItems
+    const todo = newToDos.find(todo => todo.id === Number(id))
+    todo.done = !todo.done
+    setTodoItems(newToDos);
+    console.log(newToDos)
+  };
+  //console.log(newToDos)
   // delete items
 
   // function to remove a todo item from the todo array
@@ -52,7 +60,7 @@ function App() {
     // here we are filtering - the idea is remove an item from the todo array on a button click
     const removeItem = todoItems.filter((todo) => {
       // return the rest of the todos that don't match the item we are deleting
-      return todo.id !== id;
+      return todo.id !== Number(id);
     });
     // removeItem returns a new array - so now we are setting the todos to the new array
     setTodoItems(removeItem);
@@ -62,7 +70,11 @@ function App() {
       <Header />
       <header className="App-header">
         <Form addNewTodo={addNewTodo} />
-        <List todos={todoItems} deleteCallback={deleteTodoById} />
+        <List
+          todos={todoItems}
+          deleteCallback={deleteTodoById}
+          completeTodo={completeTodo}
+        />
       </header>
       <Footer />
     </div>
