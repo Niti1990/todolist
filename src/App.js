@@ -1,60 +1,75 @@
-import './App.css';
-import './components/Header/Header.css';
-import Header from './components/Header/Header';
-import List from './components/list/List';
-import Footer from './components/Footer/Footer';
-import Form from './components/Form/Form';
-//import EditTodo from '//components/EditTodo/EditTodo';
-import NewTodo from './components/NewToDo/NewTodo';
-import { useState } from 'react';
+import './App.css'
+import './components/Header/Header.css'
+import Header from './components/Header/Header'
+import List from './components/list/List'
+import Footer from './components/Footer/Footer'
+import Form from './components/Form/Form'
 
+import Todo from './components/Todo/Todo'
 
-const TODOS = [{
-  id: '101',
-  title: 'shopping',
-  isDone:'true',
-  
-},
-{
-  id: '103',
-  title: 'sleeping',
-  isDone:'true',
+// import EditTodo from '/components/EditTodo/EditTodo';
+import NewTodoInput from './components/NewToDo/NewTodo'
 
-},
-{
-  id: '106',
-  title: 'grocery',
-  isDone:'true',
+import { useState } from 'react'
 
-}
+const TODOS = [
+  {
+    id: '101',
+    title: 'shopping',
+    done: true,
+  },
+  {
+    id: '103',
+    title: 'sleeping',
+    done: true,
+  },
+  {
+    id: '106',
+    title: 'grocery',
+    done: true,
+  },
 ]
 
-
 function App() {
-  const [todoItems, setTodoItems] = useState(TODOS);
+  const addNewTodo = (newTodo) => {
+    console.log(newTodo)
+  }
 
+  // add items
+  //  const [value, setValue] = useState("");
+  //  const addNewTodo = (newTodo) =>{
+  //   if (!value) return;
+  //   addNewTodo(value);
+  //   setValue("");
+
+  //  };
+
+  // delete items
+  const [todoItems, setTodoItems] = useState(TODOS)
+  // function to remove a todo item from the todo array
   const deleteTodoById = (id) => {
-
+    // here we are filtering - the idea is remove an item from the todo array on a button click
     const removeItem = todoItems.filter((todo) => {
-      return todo.id !== id;
-    });
-    setTodoItems(removeItem);
-  } 
-
+      // return the rest of the todos that don't match the item we are deleting
+      return todo.id !== id
+    })
+    // removeItem returns a new array - so now we are setting the todos to the new array
+    setTodoItems(removeItem)
+  }
   return (
-    <div className="App">
-        <Header/>
-      <header className="App-header">
-      <Form/>
-      <List todos={todoItems} deleteCallback={deleteTodoById}/>
-      <NewTodo newtodos={addTodo}/>
+    <div className='App'>
+      <Header />
+      <header className='App-header'>
+        <Form addNewTodo={addNewTodo} />
+
+        <List todos={todoItems} deleteCallback={deleteTodoById} />
       </header>
-     
-      <Footer/>
-      
-    
+
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+
+export default App
+
